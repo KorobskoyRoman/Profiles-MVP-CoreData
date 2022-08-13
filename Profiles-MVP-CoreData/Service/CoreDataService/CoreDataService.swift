@@ -116,6 +116,13 @@ class CoreDataService {
         }
         return results
     }
+
+    func deleteObject(array: [UserInfo], indexPath: Int) {
+        let context = self.managedObjectContext
+        guard !array.isEmpty else { return }
+        context.delete(array[indexPath])
+        saveContext(context: context)
+    }
 }
 
 extension CoreDataService {
