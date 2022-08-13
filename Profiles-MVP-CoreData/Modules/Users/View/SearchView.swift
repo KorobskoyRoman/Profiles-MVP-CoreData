@@ -13,7 +13,7 @@ class SearchView: UIView {
         tf.backgroundColor = .mainBackground()
         tf.placeholder = TitleConstants.textFieldPlaceholder
         tf.setLeftPaddingPoints(Insets.inset10)
-        tf.addTarget(SearchView.self, action: #selector(textFieldDidChanged), for: .editingChanged)
+        tf.addTarget(self, action: #selector(textFieldDidChanged), for: .editingChanged)
         return tf
     }()
     let createButton: UIButton = {
@@ -24,7 +24,10 @@ class SearchView: UIView {
         button.isEnabled = false
         return button
     }()
-    private lazy var stackView = UIStackView(arrangedSubviews: [textField, createButton], axis: .vertical, spacing: Insets.inset10, distribution: .fillEqually)
+    private lazy var stackView = UIStackView(arrangedSubviews: [textField, createButton],
+                                             axis: .vertical,
+                                             spacing: Insets.inset10,
+                                             distribution: .fillEqually)
 
     init() {
         super.init(frame: .zero)
@@ -62,8 +65,4 @@ class SearchView: UIView {
             stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -Insets.inset10)
         ])
     }
-}
-
-private enum Const {
-    static let height: CGFloat = 10
 }

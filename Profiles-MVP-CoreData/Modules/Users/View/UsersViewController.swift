@@ -7,8 +7,8 @@
 
 import UIKit
 
-class UsersViewController: UIViewController {
-    var presenter: UsersPresenter
+final class UsersViewController: UIViewController {
+    private let presenter: UsersPresenter
     private lazy var searchView = SearchView()
     private lazy var tableView = UITableView(frame: view.bounds, style: .insetGrouped)
 
@@ -106,6 +106,18 @@ extension UsersViewController: UITableViewDataSource {
         cell.configure(from: presenter.user(at: indexPath.row))
         return cell
     }
+
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            presenter.delete(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .left)
+            reload()
+        }
+    }
 }
 
 extension UsersViewController: UITableViewDelegate {
@@ -114,5 +126,9 @@ extension UsersViewController: UITableViewDelegate {
                                                  for: indexPath) as? UserCell
         else { return }
         tableView.deselectRow(at: indexPath, animated: true)
+        let detailsPresenter = DetailsPresenter()
+        detailsPresenter.user = presenter.user(at: indexPath.row)
+        let detailsVC = DetailsViewController(presenter: detailsPresenter)
+        navigationController?.pushViewController(detailsVC, animated: true)
     }
 }
