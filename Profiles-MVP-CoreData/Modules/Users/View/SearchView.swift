@@ -8,10 +8,10 @@
 import UIKit
 
 class SearchView: UIView {
-    let textField: UITextField = {
+    lazy var textField: UITextField = {
         let tf = UITextField()
         tf.backgroundColor = .mainBackground()
-        tf.placeholder = TitleConstants.textFieldPlaceholder
+        tf.placeholder = TitleConstants.nameTFPlaceholder
         tf.setLeftPaddingPoints(Insets.inset10)
         tf.addTarget(self, action: #selector(textFieldDidChanged), for: .editingChanged)
         return tf

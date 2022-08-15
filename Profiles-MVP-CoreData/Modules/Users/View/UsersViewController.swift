@@ -44,6 +44,11 @@ final class UsersViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        getData()
+    }
+
     private func setConstraints() {
         self.view.addSubview(searchView)
         view.addSubview(tableView)
@@ -122,13 +127,11 @@ extension UsersViewController: UITableViewDataSource {
 
 extension UsersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: UserCell.reuseId,
-                                                 for: indexPath) as? UserCell
-        else { return }
         tableView.deselectRow(at: indexPath, animated: true)
         let detailsPresenter = DetailsPresenter()
         detailsPresenter.user = presenter.user(at: indexPath.row)
-        let detailsVC = DetailsViewController(presenter: detailsPresenter)
+        let detailsVC = DetailsViewController(presenter: detailsPresenter,
+                                              index: indexPath.row)
         navigationController?.pushViewController(detailsVC, animated: true)
     }
 }
