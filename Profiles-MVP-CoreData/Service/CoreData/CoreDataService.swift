@@ -116,6 +116,32 @@ class CoreDataService {
         }
         return results
     }
+
+    func deleteObject(array: [UserInfo], indexPath: Int) {
+        let context = self.managedObjectContext
+        guard !array.isEmpty else { return }
+        context.delete(array[indexPath])
+        saveContext(context: context)
+    }
+
+    func editObject(index: Int,
+                    name: String,
+                    birthday: String,
+                    gender: String) {
+        let context = self.managedObjectContext
+
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "UserInfo")
+        do {
+            let users = try context.fetch(fetchRequest)
+            let user = users[index]
+            user.setValue(name, forKey: "name")
+            user.setValue(birthday, forKey: "birthday")
+            user.setValue(gender, forKey: "gender")
+            saveContext(context: context)
+        } catch {
+            print("can't edit core data element")
+        }
+    }
 }
 
 extension CoreDataService {

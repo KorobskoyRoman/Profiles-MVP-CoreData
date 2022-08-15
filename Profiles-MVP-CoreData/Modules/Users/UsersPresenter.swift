@@ -10,6 +10,7 @@ import Foundation
 protocol UsersPresenterProtocol {
     var reload: (() -> Void)? { get set }
     func saveData(from text: String)
+    func getData()
 }
 
 class UsersPresenter: UsersPresenterProtocol {
@@ -25,11 +26,16 @@ class UsersPresenter: UsersPresenterProtocol {
 
     func saveData(from text: String) {
         CoreDataService.shared.uploadIntoCoreData(from: text)
-//        self.reload?()
     }
 
     func getData() {
         users = CoreDataService.shared.getUsersFromCoreData()
         self.reload?()
+    }
+
+    func delete(at indexPath: Int) {
+//        users.remove(at: indexPath)
+        CoreDataService.shared.deleteObject(array: users, indexPath: indexPath)
+        users.remove(at: indexPath)
     }
 }

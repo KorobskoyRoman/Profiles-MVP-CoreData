@@ -21,6 +21,9 @@
 		9C2B2FFE28A80E430074DE7C /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B2FFD28A80E430074DE7C /* UserCell.swift */; };
 		9C2B300228A8108E0074DE7C /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B300128A8108E0074DE7C /* CoreDataService.swift */; };
 		9C2B300428A8226C0074DE7C /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B300328A8226C0074DE7C /* UITextField+.swift */; };
+		9C2B300828A839C50074DE7C /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B300728A839C50074DE7C /* DetailsPresenter.swift */; };
+		9C2B300A28A839D00074DE7C /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B300928A839D00074DE7C /* DetailsViewController.swift */; };
+		9C2B300C28A83E220074DE7C /* DetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2B300B28A83E220074DE7C /* DetailsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		9C2B2FFD28A80E430074DE7C /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		9C2B300128A8108E0074DE7C /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		9C2B300328A8226C0074DE7C /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		9C2B300728A839C50074DE7C /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
+		9C2B300928A839D00074DE7C /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		9C2B300B28A83E220074DE7C /* DetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				9C2B2FED28A7F4EC0074DE7C /* Users */,
+				9C2B300528A839900074DE7C /* Details */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -158,17 +165,35 @@
 		9C2B2FFF28A810740074DE7C /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				9C2B300028A8107D0074DE7C /* CoreDataService */,
+				9C2B300028A8107D0074DE7C /* CoreData */,
 			);
 			path = Service;
 			sourceTree = "<group>";
 		};
-		9C2B300028A8107D0074DE7C /* CoreDataService */ = {
+		9C2B300028A8107D0074DE7C /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
 				9C2B300128A8108E0074DE7C /* CoreDataService.swift */,
 			);
-			path = CoreDataService;
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		9C2B300528A839900074DE7C /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				9C2B300628A839B60074DE7C /* View */,
+				9C2B300728A839C50074DE7C /* DetailsPresenter.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		9C2B300628A839B60074DE7C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9C2B300928A839D00074DE7C /* DetailsViewController.swift */,
+				9C2B300B28A83E220074DE7C /* DetailsCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,7 +275,10 @@
 				9C2B2FD728A7F3DD0074DE7C /* SceneDelegate.swift in Sources */,
 				9C2B2FF428A7FA8B0074DE7C /* Constants.swift in Sources */,
 				9C2B2FFC28A7FEE50074DE7C /* UIStackView+.swift in Sources */,
+				9C2B300828A839C50074DE7C /* DetailsPresenter.swift in Sources */,
 				9C2B300228A8108E0074DE7C /* CoreDataService.swift in Sources */,
+				9C2B300A28A839D00074DE7C /* DetailsViewController.swift in Sources */,
+				9C2B300C28A83E220074DE7C /* DetailsCell.swift in Sources */,
 				9C2B2FFE28A80E430074DE7C /* UserCell.swift in Sources */,
 				9C2B2FF828A7FC240074DE7C /* UIColor+.swift in Sources */,
 			);
